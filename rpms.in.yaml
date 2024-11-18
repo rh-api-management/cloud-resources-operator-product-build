@@ -1,0 +1,10 @@
+contentOrigin:
+  repofiles:
+    - ./ubi.repo
+context:
+  containerfile: Containerfile.cloud-resource-operator-bundle
+packages:
+  - jq
+  - python3
+  - python3-pip
+  - skopeo
