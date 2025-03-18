@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-export CLOUD_RESOURCE_OPERATOR_IMAGE_PULLSPEC="quay.io/redhat-user-workloads/api-management-tenant/cloud-resources-operator/cloud-resources-operator@sha256:cff53ea2fe41b48212c8aeaf2f3e07e454c8600d1dc8a547504e35eb52942c16"
+export CLOUD_RESOURCE_OPERATOR_IMAGE_PULLSPEC="quay.io/redhat-user-workloads/api-management-tenant/cloud-resources-operator/cloud-resources-operator@sha256:ba0cc2037eafbf8ab908b9b0866f5b5ebaa8504f7b431e87b86437660759da11"
 
 export CSV_FILE=/manifests/cloud-resource-operator.clusterserviceversion.yaml
 
