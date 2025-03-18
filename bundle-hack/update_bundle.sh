@@ -46,6 +46,10 @@ cro_csv['metadata']['annotations']['features.operators.openshift.io/tls-profiles
 cro_csv['metadata']['annotations']['features.operators.openshift.io/token-auth-aws'] = 'false'
 cro_csv['metadata']['annotations']['features.operators.openshift.io/token-auth-azure'] = 'false'
 cro_csv['metadata']['annotations']['features.operators.openshift.io/token-auth-gcp'] = 'false'
+cro_csv['metadata']['annotations']['features.operators.openshift.io/cnf'] = 'false'
+cro_csv['metadata']['annotations']['features.operators.openshift.io/cni'] = 'false'
+cro_csv['metadata']['annotations']['features.operators.openshift.io/csi'] = 'false'
+cro_csv['metadata']['annotations']['operators.openshift.io/valid-subscription'] = '[]'
 
 dump_manifest(os.getenv('CSV_FILE'), cro_csv)
 CSV_UPDATE
