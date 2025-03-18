@@ -47,6 +47,18 @@ COPY --from=builder /workspace/cloud-resource-operator /usr/local/bin/cloud-reso
 COPY cloud-resource-operator/build/bin /usr/local/bin
 COPY --from=builder /workspace/licenses /licenses
 
+LABEL name="Cloud Resource Operator" \
+      summary="Cloud Resource Operator container image" \
+      description="Provision and manage in-cluster and cloud provider resources (Blob Storage, Postgres, Redis, SMTP Details)" \
+      com.redhat.component="cloud-resource-operator-container" \
+      version="alpha" \
+      vendor="Red Hat, Inc."
+
+LABEL io.k8s.display-name="Cloud Resource Operator" \
+      io.openshift.expose-services="" \
+      io.openshift.tags="cloud-resource-operator" \
+      io.k8s.description="Provision and manage in-cluster and cloud provider resources (Blob Storage, Postgres, Redis, SMTP Details)"
+
 RUN  /usr/local/bin/user_setup
 
 ENTRYPOINT ["/usr/local/bin/entrypoint"]

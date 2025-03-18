@@ -20,4 +20,16 @@ LABEL operators.operatorframework.io.bundle.channel.default.v1=rhmi
 LABEL operators.operatorframework.io/builder=operator-sdk-v1.13.0+git
 LABEL operators.operatorframework.io/project_layout=go.kubebuilder.io/v2
 
+LABEL name="Cloud Resource Operator Bundle" \
+      summary="Cloud Resource Operator bundle image" \
+      description="Provision and manage in-cluster and cloud provider resources (Blob Storage, Postgres, Redis, SMTP Details)" \
+      com.redhat.component="cloud-resource-operator-bundle" \
+      version="alpha" \
+      vendor="Red Hat, Inc."
+
+LABEL io.k8s.display-name="Cloud Resource Operator Bundle" \
+      io.openshift.expose-services="" \
+      io.openshift.tags="cloud-resource-operator-bundle" \
+      io.k8s.description="Provision and manage in-cluster and cloud provider resources (Blob Storage, Postgres, Redis, SMTP Details)"
+
 USER 1001
