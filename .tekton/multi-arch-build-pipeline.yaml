@@ -153,28 +153,6 @@ spec:
         operator: in
         values:
         - "true"
-    - name: rpms-signature-scan
-      params:
-      - name: image-url
-        value: $(tasks.build-image-index.results.IMAGE_URL)
-      - name: image-digest
-        value: $(tasks.build-image-index.results.IMAGE_DIGEST)
-      runAfter:
-      - build-image-index
-      taskRef:
-        params:
-        - name: name
-          value: rpms-signature-scan
-        - name: bundle
-          value: quay.io/konflux-ci/tekton-catalog/task-rpms-signature-scan:0.2@sha256:39cd56ffa26ff5edfd5bf9b61e902cae35a345c078cd9dcbc0737d30f3ce5ef1
-        - name: kind
-          value: task
-        resolver: bundles
-      when:
-      - input: $(params.skip-checks)
-        operator: in
-        values:
-        - "false"
     - name: build-source-image
       params:
       - name: BINARY_IMAGE
@@ -353,6 +331,28 @@ spec:
         - name: kind
           value: task
         resolver: bundles
+    - name: rpms-signature-scan
+      params:
+      - name: image-url
+        value: $(tasks.build-image-index.results.IMAGE_URL)
+      - name: image-digest
+        value: $(tasks.build-image-index.results.IMAGE_DIGEST)
+      runAfter:
+      - build-image-index
+      taskRef:
+        params:
+        - name: name
+          value: rpms-signature-scan
+        - name: bundle
+          value: quay.io/konflux-ci/tekton-catalog/task-rpms-signature-scan:0.2@sha256:5bc61290c6d56cb3d61409efdf522574e7d08a497f362d7456ed33d56189c4f9
+        - name: kind
+          value: task
+        resolver: bundles
+      when:
+      - input: $(params.skip-checks)
+        operator: in
+        values:
+        - "false"
     params:
     - description: Source Repository URL
       name: git-url

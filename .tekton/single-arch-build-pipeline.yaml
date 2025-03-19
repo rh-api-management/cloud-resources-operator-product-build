@@ -269,6 +269,28 @@ spec:
           value: "$(tasks.build-container.results.IMAGE_URL)"
         - name: IMAGE_DIGEST
           value: "$(tasks.build-container.results.IMAGE_DIGEST)"
+    - name: rpms-signature-scan
+      params:
+      - name: image-url
+        value: "$(tasks.build-container.results.IMAGE_URL)"
+      - name: image-digest
+        value: "$(tasks.build-container.results.IMAGE_DIGEST)"
+      runAfter:
+      - build-container
+      taskRef:
+        params:
+        - name: name
+          value: rpms-signature-scan
+        - name: bundle
+          value: quay.io/konflux-ci/tekton-catalog/task-rpms-signature-scan:0.2@sha256:5bc61290c6d56cb3d61409efdf522574e7d08a497f362d7456ed33d56189c4f9
+        - name: kind
+          value: task
+        resolver: bundles
+      when:
+      - input: "$(params.skip-checks)"
+        operator: in
+        values:
+        - 'false'
   params:
     - name: git-url
       type: string
