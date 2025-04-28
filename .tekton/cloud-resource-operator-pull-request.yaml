@@ -12,6 +12,7 @@ metadata:
       ".tekton/cloud-resource-operator-push.yaml".pathChanged() ||
       ".tekton/multi-arch-build-pipeline.yaml".pathChanged() ||
       "Containerfile.cloud-resource-operator".pathChanged() ||
+      "Containerfile.cloud-resource-operator-bundle".pathChanged() ||
       "cloud-resource-operator".pathChanged())
   creationTimestamp: null
   labels:
