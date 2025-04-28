@@ -1,11 +1,6 @@
 #!/usr/bin/env bash
 
-export CLOUD_RESOURCE_OPERATOR_IMAGE_PULLSPEC="quay.io/redhat-user-workloads/api-management-tenant/cloud-resources-operator/cloud-resources-operator@sha256:cbd5ca0a26383d5d84ce50768aeead0e2bfd50a36d09d5fc29aff7a47f67822c"
-
 export CSV_FILE=/manifests/cloud-resource-operator.clusterserviceversion.yaml
-
-sed -i -e "s|quay.io/integreatly/cloud-resource-operator:v.*|\"${CLOUD_RESOURCE_OPERATOR_IMAGE_PULLSPEC}\"|g" \
-	"${CSV_FILE}"
 
 export EPOC_TIMESTAMP=$(date +%s)
 # time for some direct modifications to the csv
@@ -49,7 +44,6 @@ cro_csv['metadata']['annotations']['features.operators.openshift.io/token-auth-g
 cro_csv['metadata']['annotations']['features.operators.openshift.io/cnf'] = 'false'
 cro_csv['metadata']['annotations']['features.operators.openshift.io/cni'] = 'false'
 cro_csv['metadata']['annotations']['features.operators.openshift.io/csi'] = 'false'
-cro_csv['metadata']['annotations']['operators.openshift.io/valid-subscription'] = '[]'
 
 dump_manifest(os.getenv('CSV_FILE'), cro_csv)
 CSV_UPDATE

@@ -10,6 +10,7 @@ metadata:
       (".tekton/cloud-resource-operator-bundle-pull-request.yaml".pathChanged() ||
       ".tekton/cloud-resource-operator-bundle-push.yaml".pathChanged() ||
       ".tekton/single-arch-build-pipeline.yaml".pathChanged() ||
+      "Containerfile.cloud-resource-operator".pathChanged() ||
       "Containerfile.cloud-resource-operator-bundle".pathChanged() ||
       "cloud-resource-operator".pathChanged() ||
       "bundle-hack/***".pathChanged() ||
