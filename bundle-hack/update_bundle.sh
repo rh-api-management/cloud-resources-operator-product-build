@@ -28,6 +28,11 @@ def dump_manifest(pathn, manifest):
 timestamp = int(os.getenv('EPOC_TIMESTAMP'))
 datetime_time = datetime.fromtimestamp(timestamp)
 cro_csv = load_manifest(os.getenv('CSV_FILE'))
+
+# For 1.1.6 remove replaces
+if 'spec' in cro_csv and 'replaces' in cro_csv['spec']:
+    del cro_csv['spec']['replaces']
+    
 # Add arch and os support labels
 cro_csv['metadata']['labels'] = cro_csv['metadata'].get('labels', {})
 cro_csv['metadata']['labels']['operatorframework.io/os.linux'] = 'supported'
