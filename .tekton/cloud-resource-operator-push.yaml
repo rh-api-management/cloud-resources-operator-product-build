@@ -44,6 +44,8 @@ spec:
     value: "true"
   pipelineRef:
     name: build-pipeline
+  taskRunTemplate:
+    serviceAccountName: build-pipeline-cloud-resources-operator
   workspaces:
   - name: git-auth
     secret:
