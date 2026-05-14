@@ -130,13 +130,13 @@ arches:
     name: fuse-common
     evr: 3.10.2-9.el9
     sourcerpm: fuse3-3.10.2-9.el9.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/os/Packages/j/jq-1.6-19.el9.x86_64.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/os/Packages/j/jq-1.6-19.el9_7.0.2.x86_64.rpm
     repoid: ubi-9-for-x86_64-baseos-rpms
-    size: 191662
-    checksum: sha256:6b4d82714813d7b4a3200bf2856a3c1493d186e9caa916d7a700ec25e4996462
+    size: 197456
+    checksum: sha256:c6516f674a43c89c2a54bcffa7b8e1d65c553042d6aed94ccc08c443ed1efdfa
     name: jq
-    evr: 1.6-19.el9
-    sourcerpm: jq-1.6-19.el9.src.rpm
+    evr: 1.6-19.el9_7.0.2
+    sourcerpm: jq-1.6-19.el9_7.0.2.src.rpm
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/os/Packages/k/kmod-28-11.el9.x86_64.rpm
     repoid: ubi-9-for-x86_64-baseos-rpms
     size: 127775
@@ -287,12 +287,12 @@ arches:
     checksum: sha256:ddfcd07bcdcc07bdabe0f05b2c5c3bb1d6582af9c6b127632dd74f8ca78d56c9
     name: fuse3
     evr: 3.10.2-9.el9
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/source/SRPMS/Packages/j/jq-1.6-19.el9.src.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/source/SRPMS/Packages/j/jq-1.6-19.el9_7.0.2.src.rpm
     repoid: ubi-9-for-x86_64-baseos-source-rpms
-    size: 1505339
-    checksum: sha256:a36173a7f5461f8cc1b6aa9e62f3e0435d6fde658a8795c909fd62cb5bfc9565
+    size: 1512485
+    checksum: sha256:502338f1f51f68da0216d7919a055c4ffe3d8b614626e7ff82178404c6b1596a
     name: jq
-    evr: 1.6-19.el9
+    evr: 1.6-19.el9_7.0.2
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/source/SRPMS/Packages/k/kmod-28-11.el9.src.rpm
     repoid: ubi-9-for-x86_64-baseos-source-rpms
     size: 579198
