@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -euo pipefail
 
 export CSV_FILE=/manifests/cloud-resource-operator.clusterserviceversion.yaml
 
@@ -7,6 +8,7 @@ export EPOC_TIMESTAMP=$(date +%s)
 python3 - << CSV_UPDATE
 import os
 from collections import OrderedDict
+import sys
 from sys import exit as sys_exit
 from datetime import datetime
 from ruamel.yaml import YAML
@@ -18,8 +20,8 @@ def load_manifest(pathn):
       with open(pathn, "r") as f:
          return yaml.load(f)
    except FileNotFoundError:
-      print("File can not found")
-      exit(2)
+      print(f"File can not be found: {pathn}", file=sys.stderr)
+      sys_exit(2)
 
 def dump_manifest(pathn, manifest):
    with open(pathn, "w") as f:
@@ -29,10 +31,28 @@ timestamp = int(os.getenv('EPOC_TIMESTAMP'))
 datetime_time = datetime.fromtimestamp(timestamp)
 cro_csv = load_manifest(os.getenv('CSV_FILE'))
 
-# For 1.1.6 remove replaces
+# For skipRange bundles remove replaces
 if 'spec' in cro_csv and 'replaces' in cro_csv['spec']:
     del cro_csv['spec']['replaces']
-    
+
+networkpolicy_rule = {
+    'apiGroups': ['networking.k8s.io'],
+    'resources': ['networkpolicies'],
+    'verbs': ['create', 'delete', 'patch', 'update'],
+}
+
+def has_networkpolicy_rule(rules):
+    for rule in rules:
+        if 'networkpolicies' in rule.get('resources', []):
+            return True
+    return False
+
+install_spec = cro_csv.get('spec', {}).get('install', {}).get('spec', {})
+for cluster_perm in install_spec.get('clusterPermissions', []):
+    rules = cluster_perm.setdefault('rules', [])
+    if not has_networkpolicy_rule(rules):
+        rules.append(networkpolicy_rule)
+
 # Add arch and os support labels
 cro_csv['metadata']['labels'] = cro_csv['metadata'].get('labels', {})
 cro_csv['metadata']['labels']['operatorframework.io/os.linux'] = 'supported'
