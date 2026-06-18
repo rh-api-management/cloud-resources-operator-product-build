@@ -57,16 +57,14 @@ spec:
           - name: name
             value: prefetch-dependencies-oci-ta
           - name: bundle
-            value: quay.io/konflux-ci/tekton-catalog/task-prefetch-dependencies-oci-ta:0.2@sha256:d0cbc492da865be336d09926eb6e3494403dccaa4a212bbdf472d8adbf80ab08
+            value: quay.io/konflux-ci/tekton-catalog/task-prefetch-dependencies-oci-ta:0.3@sha256:7e84b01526b6a50b920c0f456c8d95d6c5c2f7b81109ea772e1dcf7aba14bfa5
           - name: kind
             value: task
+      runAfter:
+        - clone-repository
       params:
         - name: input
           value: "$(params.prefetch-input)"
-        - name: hermetic
-          value: "$(params.hermetic)"
-        - name: dev-package-managers
-          value: $(params.prefetch-dev-package-managers-enabled)
         - name: SOURCE_ARTIFACT
           value: $(tasks.clone-repository.results.SOURCE_ARTIFACT)
         - name: ociStorage
@@ -84,7 +82,7 @@ spec:
           - name: kind
             value: task
       runAfter:
-        - clone-repository
+        - prefetch-dependencies
       when:
         - input: "$(tasks.init.results.build)"
           operator: in
