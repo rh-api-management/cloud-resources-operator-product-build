@@ -116,13 +116,13 @@ arches:
     name: yajl
     evr: 2.1.0-25.el9
     sourcerpm: yajl-2.1.0-25.el9.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/os/Packages/e/expat-2.5.0-6.el9_8.3.x86_64.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/os/Packages/e/expat-2.5.0-6.el9_8.5.x86_64.rpm
     repoid: ubi-9-for-x86_64-baseos-rpms
-    size: 128577
-    checksum: sha256:3c9c96529f94f84fc19c8039d8852269e1085d16b5af2933f44ff286dec66a35
+    size: 129088
+    checksum: sha256:e6e7edd632fdd1dc4ad94b19b7ab88646f3ef8c1c7956bac58985c3e7118a362
     name: expat
-    evr: 2.5.0-6.el9_8.3
-    sourcerpm: expat-2.5.0-6.el9_8.3.src.rpm
+    evr: 2.5.0-6.el9_8.5
+    sourcerpm: expat-2.5.0-6.el9_8.5.src.rpm
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/os/Packages/f/fuse-common-3.10.2-9.el9.x86_64.rpm
     repoid: ubi-9-for-x86_64-baseos-rpms
     size: 8750
@@ -275,12 +275,12 @@ arches:
     checksum: sha256:08182ae11608d0ad5d9ef01c558a39489f331fe449f9be6df1a91c5e950163f9
     name: yajl
     evr: 2.1.0-25.el9
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/source/SRPMS/Packages/e/expat-2.5.0-6.el9_8.3.src.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/source/SRPMS/Packages/e/expat-2.5.0-6.el9_8.5.src.rpm
     repoid: ubi-9-for-x86_64-baseos-source-rpms
-    size: 8403095
-    checksum: sha256:0cff2a2213384dc43eb1874bf6e77b2b8230be848f50387d8057e0e6cde3d392
+    size: 8411609
+    checksum: sha256:38d7acfd1130c02c6a00010159a1350ca0f56cd7ed64f3d8394aa5b3d6512ddd
     name: expat
-    evr: 2.5.0-6.el9_8.3
+    evr: 2.5.0-6.el9_8.5
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/source/SRPMS/Packages/f/fuse3-3.10.2-9.el9.src.rpm
     repoid: ubi-9-for-x86_64-baseos-source-rpms
     size: 799367
